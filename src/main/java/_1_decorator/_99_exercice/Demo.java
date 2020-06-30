@@ -8,21 +8,21 @@ public class Demo {
 
         FileDataSource fileDataSource = new FileDataSource("OutputDemo.txt");
 
-        Encryptor encryptor = new Encryptor();
-        Compressor compressor = new Compressor();
-        String encrypted = encryptor.encode(salaryRecords);
-        String encryptedAndCompressed = compressor.compress(encrypted);
+        EncryptorDecorator encryptorDecorator = new EncryptorDecorator();
+        CompressorDecorator compressorDecorator = new CompressorDecorator();
+        String encrypted = encryptorDecorator.encode(salaryRecords);
+        String encryptedAndCompressed = compressorDecorator.compress(encrypted);
         fileDataSource.writeData(encryptedAndCompressed);
 
         //TODO refactoriser en utilisant le pattern decorator
 
-        String readData = fileDataSource.readData();
+        String readDataWithDecorator = fileDataSource.readData();
 
         System.out.println("- Input ----------------");
         System.out.println(salaryRecords);
         System.out.println("- Encoded --------------");
-        System.out.println(readData);
+        System.out.println(readDataWithDecorator);
         System.out.println("- Decoded --------------");
-        System.out.println(encryptor.decode(compressor.decompress(readData)));
+        System.out.println(encryptorDecorator.decode(compressorDecorator.decompress(readDataWithDecorator)));
     }
 }

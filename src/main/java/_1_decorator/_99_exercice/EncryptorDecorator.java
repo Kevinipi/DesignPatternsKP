@@ -3,9 +3,9 @@ package _1_decorator._99_exercice;
 import java.util.Base64;
 
 /**
- * Classe réalisatio du cryptage.
+ * Classe réalisation du cryptage.
  */
-public class Encryptor {
+public class EncryptorDecorator implements DataSource {
 
     public String encode(String data) {
         byte[] result = data.getBytes();
@@ -21,5 +21,15 @@ public class Encryptor {
             result[i] -= (byte) 1;
         }
         return new String(result);
+    }
+
+    @Override
+    public void writeData(String data) {
+
+    }
+
+    @Override
+    public String readData() {
+        return null;
     }
 }
