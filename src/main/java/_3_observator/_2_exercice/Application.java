@@ -1,6 +1,6 @@
 package _3_observator._2_exercice;
 
-public class Application {
+public class Application implements Observer {
 
     private Bouton bouton;
 
@@ -16,5 +16,16 @@ public class Application {
      */
     public void enregistrer() {
         System.out.println("Enregistrement...");
+    }
+
+    @Override
+    public void boutonEvent(String eventType, String event) {
+        if(eventType.equals("click")){
+            try {
+                enregistrer();
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
