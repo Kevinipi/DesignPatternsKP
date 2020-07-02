@@ -33,35 +33,19 @@ public class ArrayMaList implements MaList {
 
     @Override
     public void add(int position, String valeur) {
-        if(position <= this.array.length) {
-            if (this.size >= this.array.length) {
-                String[] newArray = new String[this.size * 2];
-                // découper le tableau
-                for (int i = 0; i < position; i++) {
-                    newArray[i] = array[i];
-                }
-                newArray[position] = valeur;
 
-                for (int i = 0; position + 1 < this.array.length; i++) {
-                    newArray[i] = array[i];
-                }
-                // on référence le nouveau tableau
-                this.array = newArray;
-            } else {
-                // découper le tableau
-                for (int i = 0; i < position; i++) {
-                    this.array[i] = array[i];
-                }
+        String[] newTab = new String[this.array.length];
+        for(int i = 0; i < position; i++) {
 
-                //this.array[position+1] = this.array[position];
-                this.array[position] = valeur;
-
-                for (int i = position + 2; i < this.array.length; i++) {
-                    this.array[i] = array[i];
-                }
-            }
-            this.size++;
+            newTab[i] = this.array[i];
         }
+        newTab[position] = valeur;
+        for(int i = position + 1; i < this.array.length; i++)  {
+
+            newTab[i] = this.array[i - 1];
+        }
+
+        this.array = newTab;
     }
 
     @Override
@@ -70,7 +54,7 @@ public class ArrayMaList implements MaList {
     }
 
     @Override
-    public Iterator<MaList> iterator() {
+    public Iterator<String> iterator() {
         // TODO
         List<String> listElement = Arrays.asList(this.array);
         // Boucle for

@@ -1,6 +1,7 @@
 package list_linkedlist;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class LinkedMaList implements MaList {
 
@@ -60,9 +61,26 @@ public class LinkedMaList implements MaList {
     }
 
     @Override
-    public Iterator<MaList> iterator() {
-        // TODO
-        return null;
+    public Iterator<String> iterator() {
+        return new Iterator<String>() {
+
+            private Node followingNode = first;
+
+            @Override
+            public boolean hasNext() {
+                return followingNode != null;
+            }
+
+            @Override
+            public String next() {
+                if (followingNode == null) {
+                    throw new NoSuchElementException();
+                }
+                String toReturn = followingNode.getValeur();
+                followingNode = followingNode.getNext();
+                return toReturn;
+            }
+        };
     }
 
 }

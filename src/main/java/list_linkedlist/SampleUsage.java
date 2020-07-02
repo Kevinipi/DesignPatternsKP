@@ -7,13 +7,6 @@ public class SampleUsage {
     public static void main(String[] args) {
         //Test Fonction add ArrayMaList
         ArrayMaList arrayMaList = new ArrayMaList();
-        //Defined Iterator
-        ArrayMaList list2 = new ArrayMaList();
-        MaListIterator maListIterator = new MaListIterator(list2);
-
-        list2.add("Test1");
-        list2.add("Test2");
-        list2.add("Test3");
         //Verify position and value
         arrayMaList.add(0, "Toto");
         arrayMaList.add(1, "tata");
@@ -21,28 +14,49 @@ public class SampleUsage {
         arrayMaList.add(3, "black");
         arrayMaList.add(4,"block");
 
-        //Test insertion
-        arrayMaList.add(3, "Chut");
+        //Decalage tableau
+        arrayMaList.add(1,"fouineur");
+
+        //Implement ArrayMaListIterator
+        ArrayMaList list2 = new ArrayMaList();
+        MaListIterator maListIterator = new MaListIterator(list2);
+        list2.add("Test1");
+        list2.add("Test2");
+        list2.add("Test3");
 
 
-        //Test fonction Iterator ArrayMaListe
-    //    for (Iterator<MaList> IteratorArray = arrayMaList.iterator(); IteratorArray.hasNext();){
-      //      MaList element = IteratorArray.next();
-        //    System.out.println(element);
-        //}
+        //Test fonction ArrayMaList
+        for (Iterator<String> IteratorArray = arrayMaList.iterator(); IteratorArray.hasNext();){
+            String element = IteratorArray.next();
+            System.out.println("ArrayMaList sans Patterns :" +element);
+        }
 
-        //Iterate to Iterator
+        //Iterate to ArrayMaList with Patterns Iterator
         for (Iterator iteratorArray = maListIterator.getIterator(); iteratorArray.hasNext();){
             String element = (String) iteratorArray.next();
-            System.out.println(element);
+            System.out.println("ArrayMaList avec Patterns :" + element);
         }
 
         //test fonction add linkedMaList
         LinkedMaList linkedMaList = new LinkedMaList();
 
-        linkedMaList.add(1,"Test");
-        linkedMaList.add(2,"bidule");
+        //test fonction add linkedMalist avec patterns
+        MaListIterator maListIterator2 = new MaListIterator(linkedMaList);
+
+        //Liste d'éléments LinkedMaList
         linkedMaList.add("TOTO");
-        System.out.println("LinkedMaList" + linkedMaList);
+        linkedMaList.add("TITI");
+        linkedMaList.add("TACTAC");
+
+        //Test Iterator to LinkedList
+        for (Iterator<String> IteratorArray = linkedMaList.iterator(); IteratorArray.hasNext();) {
+            String element = IteratorArray.next();
+            System.out.println("Linkedlist sansPatterns : " + element);
+        }
+
+        for (Iterator iteratorArray = maListIterator2.getIterator(); iteratorArray.hasNext();){
+            String element = (String) iteratorArray.next();
+            System.out.println("LinkedMaList avec Patterns :" + element);
+        }
     }
 }
