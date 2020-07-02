@@ -11,7 +11,7 @@ public class Demo {
         Application application = new Application();
 
         bouton.observe(application);
-        bouton.observe(new Application());
+        //bouton.observe(new Application());
 
         try {
             //Call Function click
