@@ -30,9 +30,27 @@ public class LinkedMaList implements MaList {
         return size;
     }
 
+
     @Override
     public void add(int position, String valeur) {
         // TODO
+        if (first != null) {
+            Node newLast = new Node();
+            newLast.setValeur(valeur);
+
+            int i =0;
+            Node nodeActual = first;
+            while(nodeActual.getNext() != null) {
+                if(i == position) {
+                    nodeActual.setValeur(valeur);
+
+                }
+
+                nodeActual = nodeActual.getNext();
+            }
+
+            this.last = nodeActual;
+        }
     }
 
     @Override
@@ -42,7 +60,7 @@ public class LinkedMaList implements MaList {
     }
 
     @Override
-    public Iterator<String> iterator() {
+    public Iterator<MaList> iterator() {
         // TODO
         return null;
     }
