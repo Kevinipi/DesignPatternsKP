@@ -1,5 +1,9 @@
 package _3_observator._2_exercice;
 
-public class BoutonObservable {
+public class BoutonObservable implements Observable {
 
+    @Override
+    public void observe(Observer observer) {
+
+    }
 }
