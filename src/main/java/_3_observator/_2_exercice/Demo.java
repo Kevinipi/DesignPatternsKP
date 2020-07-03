@@ -21,7 +21,7 @@ public class Demo {
             e.printStackTrace();
         }
 
-        EventObserver eventObserver = new EventObserver();
-        eventObserver.observe(application);
+       EventObserver eventObserver = new EventObserver();
+       eventObserver.observe(application);
     }
 }

@@ -1,6 +1,7 @@
 package _5_factory_method._99_excerice.implementation;
 
 import _5_factory_method._99_excerice.ImageReader;
+import _5_factory_method._99_excerice.ImageReaderFactory;
 import _5_factory_method._99_excerice.ImageType;
 import _5_factory_method._99_excerice.ImageUtil;
 
@@ -10,6 +11,7 @@ import java.io.InputStream;
 public class GifReader implements ImageReader {
 
     private InputStream in;
+    private ImageReaderFactory imageReaderFactory;
 
     public GifReader(InputStream in) {
         this.in = in;
@@ -19,6 +21,10 @@ public class GifReader implements ImageReader {
         }
     }
 
+
+    public ImageReaderFactory imageReaderFactory(){
+        return imageReaderFactory;
+    }
     public Image loadImage() {
         // fausse implémentation, inutile de la coder pour l'exercice
         return null;
