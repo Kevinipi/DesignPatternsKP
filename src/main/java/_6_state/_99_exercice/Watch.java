@@ -1,16 +1,12 @@
 package _6_state._99_exercice;
 
-import _6_state._99_exercice.state.EditHourState;
-import _6_state._99_exercice.state.EditMinutesState;
 import _6_state._99_exercice.state.ShowState;
 
 public class Watch implements ClickListenener {
     private int hours = 0;
     private int minutes = 0;
 
-    private State state = State.SHOW;
-
-    ShowState showState = new ShowState(this);
+    private StateInterface state = new ShowState(this);
 
     /**
      * Generate constructor
@@ -30,7 +26,8 @@ public class Watch implements ClickListenener {
         System.out.println(hours + ":" + minutes);
     }
 
-    public void clickButton1() {
+/*
+ public void clickButton1() {
         switch (state) {
             case SHOW:
                 state = State.EDIT_HOURS;
@@ -57,23 +54,21 @@ public class Watch implements ClickListenener {
                 break;
         }
     }
-
+*/
     /**
      * Implements method Click Listener
-     * @param clickEvent
      */
     @Override
-    public void clickShow(ClickEvent clickEvent) {
-        showState.clickShow(clickEvent);
+    public void clickedA(ClickEvent clickEvent) {
+        state.clickedA(clickEvent);
     }
 
     @Override
-    public void clickEditHour(ClickEvent clickEvent) {
-        showState.clickEditHour(clickEvent);
+    public void clickedB(ClickEvent clickEvent) {
+        state.clickedB(clickEvent);
     }
 
-    @Override
-    public void clickEditMinutes(ClickEvent clickEvent) {
-        showState.clickEditMinutes(clickEvent);
+    public void changeState(StateInterface state) {
+        this.state = state;
     }
 }

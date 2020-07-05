@@ -2,9 +2,10 @@ package _6_state._99_exercice.state;
 
 import _6_state._99_exercice.ClickEvent;
 import _6_state._99_exercice.ClickListenener;
+import _6_state._99_exercice.StateInterface;
 import _6_state._99_exercice.Watch;
 
-public class EditMinutesState implements ClickListenener {
+public class EditMinutesState implements StateInterface {
 
     private  Watch watch;
 
@@ -12,19 +13,13 @@ public class EditMinutesState implements ClickListenener {
         this.watch = watch;
     }
 
-
     @Override
-    public void clickShow(ClickEvent clickEvent) {
-
+    public void clickedA(ClickEvent clickEvent) {
+        this.watch.changeState(new ShowState(this.watch));
     }
 
     @Override
-    public void clickEditHour(ClickEvent clickEvent) {
-
-    }
-
-    @Override
-    public void clickEditMinutes(ClickEvent clickEvent) {
-
+    public void clickedB(ClickEvent clickEvent) {
+        this.watch.incrementMinutes();
     }
 }

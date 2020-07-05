@@ -1,19 +1,20 @@
 package _6_state._99_exercice;
 
-import _6_state._99_exercice.state.ShowState;
-
 public class Demo {
+    private  static ClickEvent clickEvent;
+
     public static void main(String[] args) {
         Watch watch = new Watch();
-        watch.clickButton1();
-        watch.clickButton2();
-        watch.clickButton2();//2h
 
-        watch.clickButton1();
-        watch.clickButton2();
-        watch.clickButton2();
-        watch.clickButton2();//minutes
+        //Condition clic A
+        watch.clickedA(clickEvent);
+        watch.clickedB(clickEvent);
+        //Conditionclci B
+        watch.clickedA(clickEvent);
+        watch.clickedB(clickEvent);
+        watch.clickedB(clickEvent);
 
-        watch.showTime();// 2:3
+        watch.showTime();// 1:2
+
     }
 }
