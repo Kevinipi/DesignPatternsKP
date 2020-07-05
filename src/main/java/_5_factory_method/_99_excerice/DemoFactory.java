@@ -14,11 +14,8 @@ public class DemoFactory {
         InputStream input = new URL("http://java-tips.org/source.gif").openStream();
         //GIF
         ImageReader imageReader = imageReaderFactory.getType(input);
-        System.out.println("Test GIF : " + imageReader);
         //JPEG
-
         InputStream input2 = new FileInputStream("Exo 3 V1.0.jpeg");
         ImageReader imageReader2 = imageReaderFactory.getType(input2);
-        System.out.println("Test JPEG : " + imageReader2);
     }
 }

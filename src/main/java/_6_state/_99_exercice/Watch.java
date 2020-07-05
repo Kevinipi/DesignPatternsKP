@@ -67,7 +67,6 @@ public class Watch implements ClickListenener {
     public void clickedB(ClickEvent clickEvent) {
         state.clickedB(clickEvent);
     }
-
     public void changeState(StateInterface state) {
         this.state = state;
     }

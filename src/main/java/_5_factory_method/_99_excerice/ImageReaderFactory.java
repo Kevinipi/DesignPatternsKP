@@ -6,14 +6,13 @@ import _5_factory_method._99_excerice.implementation.JpegReader;
 import java.awt.*;
 import java.io.InputStream;
 
-public class ImageReaderFactory {
+public class ImageReaderFactory extends ImageUtil {
     // TODO
-    private InputStream image;
     public ImageReader getType(InputStream imageType){
-        if (imageType.equals(ImageType.GIF)){
+        if (getImageType(imageType).equals(ImageType.GIF)){
             return (ImageReader) new GifReader(imageType).loadImage();
         }
-        if (imageType.equals(ImageType.JPEG)){
+        if (getImageType(imageType).equals(ImageType.JPEG)){
             return (ImageReader) new JpegReader(imageType).loadImage();
         }
         return null;
