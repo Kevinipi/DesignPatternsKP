@@ -15,7 +15,7 @@ public class DemoFactory {
         //GIF
         ImageReader imageReader = imageReaderFactory.getType(input);
         //JPEG
-        InputStream input2 = new FileInputStream("Exo 3 V1.0.jpeg");
+        InputStream input2 = new FileInputStream("Exo 3.jpeg");
         ImageReader imageReader2 = imageReaderFactory.getType(input2);
     }
 }
